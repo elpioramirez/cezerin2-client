@@ -1,6 +1,6 @@
 {
   "name": "cezerin2-client",
-  "version": "0.36.0",
+  "version": "0.37.0",
   "description": "Cezerin2 API client library. Work on browser and server.",
   "keywords": [
     "cezerin2",
@@ -12,13 +12,15 @@
     "shopping cart api"
   ],
   "homepage": "https://cezerin.org",
-  "bugs": "https://github.com/Cezerin2/client/issues",
+  "bugs": {
+    "url": "https://github.com/Cezerin2/client/issues"
+  },
   "license": "Unlicense",
   "author": "Restmount, Himadu, Community",
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Cezerin2/client"
+    "url": "git+https://github.com/Cezerin2/client.git"
   },
   "scripts": {
     "compile": "tsc",
