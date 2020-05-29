@@ -28,6 +28,14 @@ export default class Settings {
     return this.client.put(`${this.resourceUrl}/import`, data)
   }
 
+  retrieveCookieBanner(subject, body) {
+    return this.client.get(`${this.resourceUrl}/cookiebanner`, subject, body)
+  }
+
+  updateCookieBanner(subject, body) {
+    return this.client.put(`${this.resourceUrl}/cookiebanner`, subject, body)
+  }
+
   retrieveEmailTemplate(name) {
     return this.client.get(`${this.resourceUrl}/email/templates/${name}`)
   }
