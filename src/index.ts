@@ -50,10 +50,10 @@ import WebStoreServiceSettings from "./webstore/serviceSettings"
 import WebStoreClient from "./webstoreClient"
 
 export default class Client {
-  apiBaseUrl: any
-  apiToken: any
-  ajaxBaseUrl: any
-  webstoreToken: any
+  apiBaseUrl: string
+  apiToken: string
+  ajaxBaseUrl: string
+  webstoreToken: string
   products: Products
   productCategories: ProductCategories
   customers: Customers

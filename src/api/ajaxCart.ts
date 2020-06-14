@@ -1,13 +1,19 @@
-export default class AjaxCart {
-  constructor(client) {
+class AjaxCart {
+  client: { get: Function; put: Function; post: Function; delete: Function }
+  constructor(client: {
+    get: Function
+    put: Function
+    post: Function
+    delete: Function
+  }) {
     this.client = client
   }
 
-  retrieve(cookie) {
+  retrieve(cookie: string) {
     return this.client.get(`/cart`, null, cookie)
   }
 
-  update(data) {
+  update(data: string) {
     return this.client.put(`/cart`, data)
   }
 
@@ -15,23 +21,24 @@ export default class AjaxCart {
     return this.client.put(`/cart/checkout`)
   }
 
-  updateBillingAddress(address) {
+  updateBillingAddress(address: string) {
     return this.client.put(`/cart/billing_address`, address)
   }
 
-  updateShippingAddress(address) {
+  updateShippingAddress(address: string) {
     return this.client.put(`/cart/shipping_address`, address)
   }
 
-  addItem(data) {
+  addItem(data: string) {
     return this.client.post(`/cart/items`, data)
   }
 
-  updateItem(id, data) {
+  updateItem(id: string, data: string) {
     return this.client.put(`/cart/items/${id}`, data)
   }
 
-  deleteItem(id) {
+  deleteItem(id: string) {
     return this.client.delete(`/cart/items/${id}`)
   }
 }
+export default AjaxCart
