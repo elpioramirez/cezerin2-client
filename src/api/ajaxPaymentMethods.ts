@@ -1,5 +1,6 @@
-export default class AjaxPaymentMethods {
-  constructor(client) {
+class AjaxPaymentMethods {
+  client: { get: Function }
+  constructor(client: { get: Function }) {
     this.client = client
   }
 
@@ -7,3 +8,4 @@ export default class AjaxPaymentMethods {
     return this.client.get("/payment_methods")
   }
 }
+export default AjaxPaymentMethods

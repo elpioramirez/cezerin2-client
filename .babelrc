@@ -1,14 +1,14 @@
 {
   "presets": [
     [
+      "@babel/preset-typescript",
       "@babel/env",
       {
         "targets": {
           "browsers": ["last 2 versions"],
           "node": "current"
         }
-      },
-      "@babel/preset-typescript"
+      }
     ]
   ],
   "plugins": ["transform-class-properties"]

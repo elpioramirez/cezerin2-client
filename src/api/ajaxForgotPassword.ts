@@ -1,13 +1,15 @@
-export default class AjaxForgotPassword {
-  constructor(client) {
+class AjaxForgotPassword {
+  client: { post: Function; put: Function }
+  constructor(client: { post: Function; put: Function }) {
     this.client = client
   }
 
-  retrieve(data) {
+  retrieve(data: string) {
     return this.client.post(`/forgot-password`, data)
   }
 
-  update(data) {
+  update(data: string) {
     return this.client.put(`/forgot-password`, data)
   }
 }
+export default AjaxForgotPassword

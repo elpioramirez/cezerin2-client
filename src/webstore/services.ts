@@ -1,22 +1,25 @@
-export default class WebStoreServices {
-  constructor(client) {
+class WebStoreServices {
+  client: { get: Function; post: Function }
+  resourceUrl: string
+  constructor(client: { get: Function; post: Function }) {
     this.client = client
     this.resourceUrl = "/services"
   }
 
-  list(filter) {
+  list(filter: string) {
     return this.client.get(this.resourceUrl, filter)
   }
 
-  retrieve(id) {
+  retrieve(id: string) {
     return this.client.get(`${this.resourceUrl}/${id}`)
   }
 
-  enable(id) {
+  enable(id: string) {
     return this.client.post(`${this.resourceUrl}/${id}/enable`)
   }
 
-  disable(id) {
+  disable(id: string) {
     return this.client.post(`${this.resourceUrl}/${id}/disable`)
   }
 }
+export default WebStoreServices

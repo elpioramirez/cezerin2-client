@@ -24,8 +24,8 @@
   },
   "scripts": {
     "compile": "tsc",
-    "build": "babel build -d lib",
-    "install": "npm run build",
+    "build": "babel src -d lib",
+    "postpublish": "npm run build",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",

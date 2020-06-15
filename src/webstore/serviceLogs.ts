@@ -1,9 +1,11 @@
-export default class WebStoreServices {
-  constructor(client) {
+class WebStoreServices {
+  client: { get: Function }
+  constructor(client: { get: Function }) {
     this.client = client
   }
 
-  list(serviceId) {
-    return this.client.get(`/services/${serviceId}/logs`)
+  list(serviceID: string) {
+    return this.client.get(`/services/${serviceID}/logs`)
   }
 }
+export default WebStoreServices

@@ -1,5 +1,7 @@
-export default class WebStoreAccount {
-  constructor(client) {
+class WebStoreAccount {
+  client: { get: Function; put: Function }
+  resourceUrl: string
+  constructor(client: { get: Function; put: Function }) {
     this.client = client
     this.resourceUrl = "/account"
   }
@@ -8,11 +10,12 @@ export default class WebStoreAccount {
     return this.client.get(this.resourceUrl)
   }
 
-  update(data) {
+  update(data: string) {
     return this.client.put(this.resourceUrl, data)
   }
 
-  updateDeveloper(data) {
+  updateDeveloper(data: string) {
     return this.client.put(`${this.resourceUrl}/developer`, data)
   }
 }
+export default WebStoreAccount

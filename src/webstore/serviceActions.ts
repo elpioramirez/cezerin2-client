@@ -1,9 +1,11 @@
-export default class WebStoreServices {
-  constructor(client) {
+class WebStoreServices {
+  client: { post: Function }
+  constructor(client: { post: Function }) {
     this.client = client
   }
 
-  call(serviceId, actionId) {
-    return this.client.post(`/services/${serviceId}/actions/${actionId}`)
+  call(serviceID: string, actionID: string) {
+    return this.client.post(`/services/${serviceID}/actions/${actionID}`)
   }
 }
+export default WebStoreServices
