@@ -2,12 +2,14 @@ import fetch from "cross-fetch"
 import queryString from "query-string"
 
 class RestClient {
+  baseUrl: any
+  token: any
   constructor({ baseUrl, token }) {
     this.baseUrl = baseUrl
     this.token = token
   }
 
-  getConfig(method, data) {
+  getConfig(method: string, data: string) {
     const config = {
       method,
       headers: {
@@ -22,7 +24,7 @@ class RestClient {
     return config
   }
 
-  postFormDataConfig = formData => ({
+  postFormDataConfig = (formData: string) => ({
     method: "post",
     body: formData,
     headers: {
@@ -33,42 +35,42 @@ class RestClient {
   returnStatusAndJson = response =>
     response
       .json()
-      .then(json => ({ status: response.status, json }))
+      .then((json: string) => ({ status: response.status, json }))
       .catch(() => ({ status: response.status, json: null }))
 
   static returnStatusAndJsonStatic = response =>
     response
       .json()
-      .then(json => ({ status: response.status, json }))
+      .then((json: string) => ({ status: response.status, json }))
       .catch(() => ({ status: response.status, json: null }))
 
-  get(endpoint, filter, cookie) {
+  get(endpoint: string, filter: string, cookie: string) {
     return fetch(
       `${this.baseUrl}${endpoint}?${queryString.stringify(filter)}`,
       this.getConfig("get", null, cookie)
     ).then(this.returnStatusAndJson)
   }
 
-  post(endpoint, data) {
+  post(endpoint: string, data: string) {
     return fetch(this.baseUrl + endpoint, this.getConfig("post", data)).then(
       this.returnStatusAndJson
     )
   }
 
-  postFormData(endpoint, formData) {
+  postFormData(endpoint: string, formData: string) {
     return fetch(
       this.baseUrl + endpoint,
       this.postFormDataConfig(formData)
     ).then(this.returnStatusAndJson)
   }
 
-  put(endpoint, data) {
+  put(endpoint: string, data: string) {
     return fetch(this.baseUrl + endpoint, this.getConfig("put", data)).then(
       this.returnStatusAndJson
     )
   }
 
-  delete(endpoint) {
+  delete(endpoint: string) {
     return fetch(this.baseUrl + endpoint, this.getConfig("delete")).then(
       this.returnStatusAndJson
     )
