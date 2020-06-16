@@ -1,7 +1,12 @@
 class Orders {
-  client: any
+  client: { get: Function; post: Function; put: Function; delete: Function }
   resourceUrl: string
-  constructor(client) {
+  constructor(client: {
+    get: Function
+    post: Function
+    put: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/orders"
   }

@@ -1,5 +1,7 @@
 class PaymentGateways {
-  constructor(client) {
+  client: { get: Function; put: Function }
+  resourceUrl: string
+  constructor(client: { get: Function; put: Function }) {
     this.client = client
     this.resourceUrl = "/payment_gateways"
   }

@@ -1,5 +1,11 @@
 class ProductVariants {
-  constructor(client) {
+  client: { get: Function; post: Function; put: Function; delete: Function }
+  constructor(client: {
+    get: Function
+    post: Function
+    put: Function
+    delete: Function
+  }) {
     this.client = client
   }
 

@@ -1,5 +1,16 @@
 class ProductImages {
-  constructor(client) {
+  client: {
+    get: Function
+    put: Function
+    postFormData: Function
+    delete: Function
+  }
+  constructor(client: {
+    get: Function
+    put: Function
+    postFormData: Function
+    delete: Function
+  }) {
     this.client = client
   }
 

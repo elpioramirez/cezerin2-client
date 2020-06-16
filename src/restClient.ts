@@ -2,8 +2,8 @@ import fetch from "cross-fetch"
 import queryString from "query-string"
 
 class RestClient {
-  baseUrl: any
-  token: any
+  baseUrl: string
+  token: string
   constructor({ baseUrl, token }) {
     this.baseUrl = baseUrl
     this.token = token
@@ -32,13 +32,13 @@ class RestClient {
     },
   })
 
-  returnStatusAndJson = response =>
+  returnStatusAndJson = (response: Response) =>
     response
       .json()
       .then((json: string) => ({ status: response.status, json }))
       .catch(() => ({ status: response.status, json: null }))
 
-  static returnStatusAndJsonStatic = response =>
+  static returnStatusAndJsonStatic = (response: Response) =>
     response
       .json()
       .then((json: string) => ({ status: response.status, json }))

@@ -1,5 +1,12 @@
 class Pages {
-  constructor(client) {
+  client: { get: Function; put: Function; post: Function; delete: Function }
+  resourceUrl: string
+  constructor(client: {
+    get: Function
+    put: Function
+    post: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/pages"
   }

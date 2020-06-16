@@ -1,7 +1,12 @@
 class Products {
-  client: any
+  client: { get: Function; post: Function; put: Function; delete: Function }
   resourceUrl: string
-  constructor(client) {
+  constructor(client: {
+    get: Function
+    post: Function
+    put: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/products"
   }
@@ -30,7 +35,7 @@ class Products {
     return this.client.get(`${this.resourceUrl}/${productID}/sku`, { sku })
   }
 
-  slugExists(productId, slug) {
+  slugExists(productId: string, slug: string) {
     return this.client.get(`${this.resourceUrl}/${productId}/slug`, { slug })
   }
 }

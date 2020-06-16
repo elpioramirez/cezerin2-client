@@ -1,5 +1,11 @@
 class Files {
-  constructor(client) {
+  client: { get: Function; postFormData: Function; delete: Function }
+  resourceUrl: string
+  constructor(client: {
+    get: Function
+    postFormData: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/files"
   }

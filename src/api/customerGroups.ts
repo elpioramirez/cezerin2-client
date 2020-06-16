@@ -1,10 +1,11 @@
 class CustomerGroups {
-  client: {
-    get: { get: Function; post: Function; put: Function; delete: Function }
-  }
+  client: { get: Function; post: Function; put: Function; delete: Function }
   resourceUrl: string
   constructor(client: {
-    get: { get: Function; post: Function; put: Function; delete: Function }
+    get: Function
+    post: Function
+    put: Function
+    delete: Function
   }) {
     this.client = client
     this.resourceUrl = "/customer_groups"

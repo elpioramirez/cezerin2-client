@@ -1,5 +1,6 @@
 class ThemeSettings {
-  constructor(client) {
+  client: { get: Function; put: Function }
+  constructor(client: { get: Function; put: Function }) {
     this.client = client
   }
 

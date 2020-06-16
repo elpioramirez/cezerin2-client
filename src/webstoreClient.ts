@@ -2,11 +2,11 @@ import fetch from "cross-fetch"
 import RestClient from "./restClient"
 
 class WebStoreClient extends RestClient {
-  constructor(options) {
+  constructor(options: { token: string }) {
     super({ baseUrl: "https://api.cezerin.com/v1", token: options.token })
   }
 
-  static authorize = (email, adminUrl) => {
+  static authorize = (email: string, adminUrl: string) => {
     const config = {
       method: "post",
       headers: {

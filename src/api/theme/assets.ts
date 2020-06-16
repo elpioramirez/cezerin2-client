@@ -1,5 +1,7 @@
 class ThemeAssets {
-  constructor(client) {
+  client: { postFormData: Function; delete: Function }
+  resourceUrl: string
+  constructor(client: { postFormData: Function; delete: Function }) {
     this.client = client
     this.resourceUrl = "/theme/assets"
   }

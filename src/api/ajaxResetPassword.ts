@@ -1,5 +1,6 @@
 class AjaxResetPassword {
-  constructor(client) {
+  client: { post: Function; put: Function }
+  constructor(client: { post: Function; put: Function }) {
     this.client = client
   }
 

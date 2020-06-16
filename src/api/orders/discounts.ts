@@ -1,5 +1,6 @@
 class OrderDiscounts {
-  constructor(client) {
+  client: { post: Function; put: Function; delete: Function }
+  constructor(client: { post: Function; put: Function; delete: Function }) {
     this.client = client
   }
 

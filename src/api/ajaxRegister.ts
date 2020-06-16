@@ -1,5 +1,6 @@
 class AjaxRegister {
-  constructor(client) {
+  client: { post: Function }
+  constructor(client: { post: Function }) {
     this.client = client
   }
 

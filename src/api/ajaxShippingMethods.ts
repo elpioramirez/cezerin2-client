@@ -1,5 +1,6 @@
 class AjaxShippingMethods {
-  constructor(client) {
+  client: { get: Function }
+  constructor(client: { get: Function }) {
     this.client = client
   }
 

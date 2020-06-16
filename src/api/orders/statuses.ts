@@ -1,5 +1,12 @@
 class OrderStatuses {
-  constructor(client) {
+  client: { get: Function; post: Function; put: Function; delete: Function }
+  resourceUrl: string
+  constructor(client: {
+    get: Function
+    post: Function
+    put: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/order_statuses"
   }
