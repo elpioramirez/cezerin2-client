@@ -4,7 +4,7 @@ import queryString from "query-string"
 class RestClient {
   baseUrl: string
   token: string
-  constructor({ baseUrl, token }) {
+  constructor({ baseUrl, token }: { baseUrl: string; token: string }) {
     this.baseUrl = baseUrl
     this.token = token
   }
