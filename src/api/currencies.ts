@@ -1,5 +1,6 @@
-export default class Currencies {
-  constructor(client) {
+class Currencies {
+  client: { get: Function }
+  constructor(client: { get: Function }) {
     this.client = client
   }
 
@@ -7,3 +8,4 @@ export default class Currencies {
     return this.client.get("/currencies")
   }
 }
+export default Currencies

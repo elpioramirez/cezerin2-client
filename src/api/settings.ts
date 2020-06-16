@@ -1,5 +1,17 @@
-export default class Settings {
-  constructor(client) {
+class Settings {
+  client: {
+    get: Function
+    put: Function
+    postFormData: Function
+    delete: Function
+  }
+  resourceUrl: string
+  constructor(client: {
+    get: Function
+    put: Function
+    postFormData: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/settings"
   }
@@ -8,7 +20,7 @@ export default class Settings {
     return this.client.get(this.resourceUrl)
   }
 
-  update(data) {
+  update(data: string) {
     return this.client.put(this.resourceUrl, data)
   }
 
@@ -16,7 +28,7 @@ export default class Settings {
     return this.client.get(`${this.resourceUrl}/email`)
   }
 
-  updateEmailSettings(data) {
+  updateEmailSettings(data: string) {
     return this.client.put(`${this.resourceUrl}/email`, data)
   }
 
@@ -24,27 +36,27 @@ export default class Settings {
     return this.client.get(`${this.resourceUrl}/import`)
   }
 
-  updateImportSettings(data) {
+  updateImportSettings(data: string) {
     return this.client.put(`${this.resourceUrl}/import`, data)
   }
 
-  retrieveCookieBanner(subject, body) {
+  retrieveCookieBanner(subject: string, body: string) {
     return this.client.get(`${this.resourceUrl}/cookiebanner`, subject, body)
   }
 
-  updateCookieBanner(subject, body) {
+  updateCookieBanner(subject: string, body: string) {
     return this.client.put(`${this.resourceUrl}/cookiebanner`, subject, body)
   }
 
-  retrieveEmailTemplate(name) {
+  retrieveEmailTemplate(name: string) {
     return this.client.get(`${this.resourceUrl}/email/templates/${name}`)
   }
 
-  updateEmailTemplate(name, data) {
+  updateEmailTemplate(name: string, data: string) {
     return this.client.put(`${this.resourceUrl}/email/templates/${name}`, data)
   }
 
-  uploadLogo(formData) {
+  uploadLogo(formData: string) {
     return this.client.postFormData(`${this.resourceUrl}/logo`, formData)
   }
 
@@ -52,3 +64,4 @@ export default class Settings {
     return this.client.delete(`${this.resourceUrl}/logo`)
   }
 }
+export default Settings

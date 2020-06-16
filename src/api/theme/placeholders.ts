@@ -1,4 +1,4 @@
-export default class ThemePlaceholders {
+class ThemePlaceholders {
   constructor(client) {
     this.client = client
     this.resourceUrl = "/theme/placeholders"
@@ -8,19 +8,20 @@ export default class ThemePlaceholders {
     return this.client.get(this.resourceUrl)
   }
 
-  retrieve(placeholderKey) {
+  retrieve(placeholderKey: string) {
     return this.client.get(`${this.resourceUrl}/${placeholderKey}`)
   }
 
-  create(data) {
+  create(data: string) {
     return this.client.post(this.resourceUrl, data)
   }
 
-  update(placeholderKey, data) {
+  update(placeholderKey: string, data: string) {
     return this.client.put(`${this.resourceUrl}/${placeholderKey}`, data)
   }
 
-  delete(placeholderKey) {
+  delete(placeholderKey: string) {
     return this.client.delete(`${this.resourceUrl}/${placeholderKey}`)
   }
 }
+export default ThemePlaceholders

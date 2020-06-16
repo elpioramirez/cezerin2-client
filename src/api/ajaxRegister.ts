@@ -1,9 +1,10 @@
-export default class AjaxRegister {
+class AjaxRegister {
   constructor(client) {
     this.client = client
   }
 
-  retrieve(data) {
+  retrieve(data: string) {
     return this.client.post(`/register`, data)
   }
 }
+export default AjaxRegister

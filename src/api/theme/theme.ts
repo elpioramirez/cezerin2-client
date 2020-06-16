@@ -1,6 +1,6 @@
-export default class Theme {
-  client: any
-  constructor(client) {
+class Theme {
+  client: { get: Function; postFormData: Function }
+  constructor(client: { get: Function; postFormData: Function }) {
     this.client = client
   }
 
@@ -8,7 +8,8 @@ export default class Theme {
     return this.client.get("/theme/export")
   }
 
-  install(formData) {
+  install(formData: string) {
     return this.client.postFormData("/theme/install", formData)
   }
 }
+export default Theme

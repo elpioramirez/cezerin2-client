@@ -49,11 +49,11 @@ import WebStoreServices from "./webstore/services"
 import WebStoreServiceSettings from "./webstore/serviceSettings"
 import WebStoreClient from "./webstoreClient"
 
-export default class Client {
-  apiBaseUrl: string
-  apiToken: string
-  ajaxBaseUrl: string
-  webstoreToken: string
+class Client {
+  apiBaseUrl: {}
+  apiToken: {}
+  ajaxBaseUrl: {}
+  webstoreToken: {}
   products: Products
   productCategories: ProductCategories
   customers: Customers
@@ -194,8 +194,10 @@ export default class Client {
     this.webstore.services.logs = new WebStoreServiceLogs(webstoreClient)
   }
 
-  static authorize = (baseUrl, email) => ApiClient.authorize(baseUrl, email)
+  static authorize = (baseUrl: string, email: string) =>
+    ApiClient.authorize(baseUrl, email)
 
-  static authorizeInWebStore = (email, adminUrl) =>
-    WebStoreClient.authorize(email, adminUrl)
+  static authorizeInWebStore = (email: string, adminURL: string) =>
+    WebStoreClient.authorize(email, adminURL)
 }
+export default Client

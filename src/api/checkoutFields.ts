@@ -1,5 +1,7 @@
-export default class CheckoutFields {
-  constructor(client) {
+class CheckoutFields {
+  client: { get: Function; put: Function }
+  resourceUrl: string
+  constructor(client: { get: Function; put: Function }) {
     this.client = client
     this.resourceUrl = "/settings/checkout/fields"
   }
@@ -8,11 +10,12 @@ export default class CheckoutFields {
     return this.client.get(this.resourceUrl)
   }
 
-  retrieve(name) {
+  retrieve(name: string) {
     return this.client.get(`${this.resourceUrl}/${name}`)
   }
 
-  update(name, data) {
+  update(name: string, data: string) {
     return this.client.put(`${this.resourceUrl}/${name}`, data)
   }
 }
+export default CheckoutFields

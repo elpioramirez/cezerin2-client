@@ -1,21 +1,22 @@
-export default class ProductImages {
+class ProductImages {
   constructor(client) {
     this.client = client
   }
 
-  list(productId) {
+  list(productId: string) {
     return this.client.get(`/products/${productId}/images`)
   }
 
-  update(productId, imageId, data) {
+  update(productId: string, imageId: string, data: string) {
     return this.client.put(`/products/${productId}/images/${imageId}`, data)
   }
 
-  upload(productId, formData) {
+  upload(productId: string, formData: string) {
     return this.client.postFormData(`/products/${productId}/images`, formData)
   }
 
-  delete(productId, imageId) {
+  delete(productId: string, imageId: string) {
     return this.client.delete(`/products/${productId}/images/${imageId}`)
   }
 }
+export default ProductImages

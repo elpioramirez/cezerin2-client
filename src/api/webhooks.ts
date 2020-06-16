@@ -1,5 +1,12 @@
 class Webhooks {
-  constructor(client) {
+  client: { get: Function; put: Function; post: Function; delete: Function }
+  resourceUrl: string
+  constructor(client: {
+    get: Function
+    put: Function
+    post: Function
+    delete: Function
+  }) {
     this.client = client
     this.resourceUrl = "/webhooks"
   }
@@ -8,19 +15,19 @@ class Webhooks {
     return this.client.get(this.resourceUrl)
   }
 
-  retrieve(id) {
+  retrieve(id: string) {
     return this.client.get(`${this.resourceUrl}/${id}`)
   }
 
-  create(data) {
+  create(data: string) {
     return this.client.post(`${this.resourceUrl}`, data)
   }
 
-  update(id, data) {
+  update(id: string, data: string) {
     return this.client.put(`${this.resourceUrl}/${id}`, data)
   }
 
-  delete(id) {
+  delete(id: string) {
     return this.client.delete(`${this.resourceUrl}/${id}`)
   }
 }

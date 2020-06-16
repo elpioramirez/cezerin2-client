@@ -1,28 +1,29 @@
-export default class ProductVariants {
+class ProductVariants {
   constructor(client) {
     this.client = client
   }
 
-  list(productId) {
+  list(productId: string) {
     return this.client.get(`/products/${productId}/variants`)
   }
 
-  create(productId, data) {
+  create(productId: string, data: string) {
     return this.client.post(`/products/${productId}/variants`, data)
   }
 
-  update(productId, variantId, data) {
+  update(productId: string, variantId: string, data: string) {
     return this.client.put(`/products/${productId}/variants/${variantId}`, data)
   }
 
-  delete(productId, variantId) {
+  delete(productId: string, variantId: string) {
     return this.client.delete(`/products/${productId}/variants/${variantId}`)
   }
 
-  setOption(productId, variantId, data) {
+  setOption(productId: string, variantId: string, data: string) {
     return this.client.put(
       `/products/${productId}/variants/${variantId}/options`,
       data
     )
   }
 }
+export default ProductVariants

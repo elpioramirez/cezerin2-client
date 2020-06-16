@@ -1,5 +1,6 @@
-export default class Countries {
-  constructor(client) {
+class Countries {
+  client: { get: Function }
+  constructor(client: { get: Function }) {
     this.client = client
   }
 
@@ -7,3 +8,4 @@ export default class Countries {
     return this.client.get("/countries")
   }
 }
+export default Countries

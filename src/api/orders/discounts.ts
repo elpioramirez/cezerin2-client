@@ -1,17 +1,18 @@
-export default class OrderDiscounts {
+class OrderDiscounts {
   constructor(client) {
     this.client = client
   }
 
-  create(orderId, data) {
+  create(orderId: string, data: string) {
     return this.client.post(`/orders/${orderId}/discounts`, data)
   }
 
-  update(orderId, discountId, data) {
+  update(orderId: string, discountId: string, data: string) {
     return this.client.put(`/orders/${orderId}/discounts/${discountId}`, data)
   }
 
-  delete(orderId, discountId) {
+  delete(orderId: string, discountId: string) {
     return this.client.delete(`/orders/${orderId}/discounts/${discountId}`)
   }
 }
+export default OrderDiscounts

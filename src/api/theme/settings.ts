@@ -1,4 +1,4 @@
-export default class ThemeSettings {
+class ThemeSettings {
   constructor(client) {
     this.client = client
   }
@@ -7,7 +7,7 @@ export default class ThemeSettings {
     return this.client.get("/theme/settings")
   }
 
-  update(data) {
+  update(data: string) {
     return this.client.put("/theme/settings", data)
   }
 
@@ -15,3 +15,4 @@ export default class ThemeSettings {
     return this.client.get("/theme/settings_schema")
   }
 }
+export default ThemeSettings

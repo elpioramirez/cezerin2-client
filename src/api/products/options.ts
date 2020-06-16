@@ -1,26 +1,27 @@
-export default class ProductOptions {
+class ProductOptions {
   client: any
   constructor(client) {
     this.client = client
   }
 
-  list(productId) {
+  list(productId: string) {
     return this.client.get(`/products/${productId}/options`)
   }
 
-  retrieve(productId, optionId) {
+  retrieve(productId: string, optionId: string) {
     return this.client.get(`/products/${productId}/options/${optionId}`)
   }
 
-  create(productId, data) {
+  create(productId: string, data: string) {
     return this.client.post(`/products/${productId}/options`, data)
   }
 
-  update(productId, optionId, data) {
+  update(productId: string, optionId: string, data: string) {
     return this.client.put(`/products/${productId}/options/${optionId}`, data)
   }
 
-  delete(productId, optionId) {
+  delete(productId: string, optionId: string) {
     return this.client.delete(`/products/${productId}/options/${optionId}`)
   }
 }
+export default ProductOptions

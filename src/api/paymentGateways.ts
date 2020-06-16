@@ -1,14 +1,15 @@
-export default class PaymentGateways {
+class PaymentGateways {
   constructor(client) {
     this.client = client
     this.resourceUrl = "/payment_gateways"
   }
 
-  retrieve(gatewayName) {
+  retrieve(gatewayName: string) {
     return this.client.get(`${this.resourceUrl}/${gatewayName}`)
   }
 
-  update(gatewayName, data) {
+  update(gatewayName: string, data: string) {
     return this.client.put(`${this.resourceUrl}/${gatewayName}`, data)
   }
 }
+export default PaymentGateways
