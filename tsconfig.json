@@ -8,10 +8,11 @@
     "strict": true,
     "target": "es2017",
     "esModuleInterop": true,
-    "noEmitOnError": true,
+    "noEmitOnError": false,
     "removeComments": true,
     "allowJs": false,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "declaration": true
   },
   "compileOnSave": true,
   "include": ["src"]
